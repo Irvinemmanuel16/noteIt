@@ -1,0 +1,68 @@
+body{
+  background-image: url("../assets/fondo.svg");
+}
+
+.material-icons{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.logo-icon {
+  background: url('../assets/Icons/noteIt-icon.svg');
+  height: 31px;
+  width: 24px;
+  display: inline-block;
+}
+
+.logo-delete {
+  background: url('../assets/Icons/basura.svg');
+  height: 22px;
+  width: 16px;
+  display: inline-block;
+}
+
+.logo-new {
+  background: url('../assets/Icons/new.svg');
+  height: 22px;
+  width: 16px;
+  display: inline-block;
+}
+
+.logo-k {
+  background: url('../assets/Icons/K.svg');
+  height: 22px;
+  width: 14px;
+  display: inline-block;
+}
+
+.logo-n {
+  background: url('../assets/Icons/N.svg');
+  height: 22px;
+  width: 14px;
+  display: inline-block;
+}
+
+.logo-s {
+  background: url('../assets/Icons/S.svg');
+  height: 22px;
+  width: 12px;
+  display: inline-block;
+}
+
+.font-pay {
+  font-family: 'Paytone One', sans-serif;
+}
+.font-source {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.h-45 {
+  height: 45%;
+}
+
+.grid-default {
+  grid-template-rows: 0.161fr 1fr;
+  grid-template-columns: 0.3fr 1fr;
+}
