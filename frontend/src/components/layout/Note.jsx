@@ -93,7 +93,7 @@ function Note(props) {
         <div className='mt-4 w-full h-4/6'>
           <textarea
             name="content"
-            className="outline-none pl-8 pr-8 pt-2 bg-transparent placeholder-current h-4/6 w-full resize-none overflow-hidden text-primary font-source text-base"
+            className="outline-none pl-4 pr-4 pt-2 bg-transparent placeholder-current h-4/6 w-full resize-none overflow-hidden text-primary font-source text-base"
             type='text'
             placeholder='Content'
             onChange={ onInputChange }

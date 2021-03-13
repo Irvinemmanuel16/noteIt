@@ -25,11 +25,11 @@ function Register(props) {
     props.registerUser({ ...data }, props.history);
   };
 
-  const onClick = (e) => {
-    setErrors(prevErrors => {
-      return prevErrors.filter(error => error.slice(0, 1) !== e.target.className);
-    });
-  };
+  // const onClick = (e) => {
+  //   setErrors(prevErrors => {
+  //     return prevErrors.filter(error => error.slice(0, 1) !== e.target.className);
+  //   });
+  // };
 
   useEffect(() => {
     setErrors(() => Object.values(props.errors));
@@ -61,15 +61,15 @@ function Register(props) {
               <input className='text-primary outline-none bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20' placeholder='Confirm password' type="password" name='password2' onChange={ onChange } />
             </div>
             <div className="mx-auto">
-              <button className='text-secondary font-pay text-2xl hover:underline'>Submit</button>
+              <button className='text-secondary font-pay text-2xl hover:underline outline-none'>Submit</button>
             </div>
           </form>
           <span className='text-primary font-source'>Already have an account ?&nbsp;<Link to='/login' className='text-secondary font-source hover:underline'>Sign in</Link></span>
         </div>
       </div>
-      {errors.map(msg => (
+      {/* {errors.map(msg => (
         <Alert msg={ msg } key={ `${Math.random()}${msg.slice(0, 1)}` } handler={ onClick } />
-      )) }
+      )) } */}
     </React.Fragment>
   );
 }

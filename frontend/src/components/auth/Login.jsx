@@ -53,15 +53,15 @@ function Login(props) {
               <input type="password" name="password" className="outline-none text-primary bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20" onChange={ onChange } placeholder='Password' />
             </div>
             <div className="mx-auto">
-              <button className="text-secondary font-pay text-2xl hover:underline">Submit</button>
+              <button className="text-secondary font-pay text-2xl hover:underline outline-none">Submit</button>
             </div>
           </form>
           <span className='text-primary font-source' >Don't have an account ?&nbsp;<Link to='/register' className='text-secondary font-source hover:underline'>create one</Link></span>
         </div>
       </div>
-      {errors.map(msg => (
+      {/* {errors.map(msg => (
         <Alert msg={ msg } key={ `${Math.random()}${msg.slice(0, 1)}` } handler={ onClick } />
-      )) }
+      )) } */}
     </React.Fragment>
   );
 }
