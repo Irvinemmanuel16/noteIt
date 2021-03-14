@@ -8,8 +8,8 @@ function Navigation(props) {
   const { isAuthenticated } = props.auth;
 
   return (
-    <nav className='bg-gray h-14'>
-      <div className='container flex justify-between items-center h-full mx-auto px-26'> {/*Option px-48*/}
+    <nav className='container bg-gray h-14'>
+      <div className='w-11/12 flex justify-between items-center h-full mx-auto'> {/*Option px-48*/}
         <Link to='/' className='navbar-brand flex justify-evenly items-center w-24 font-pay text-primary text-lg'>
           <i className='logo-icon' />
           NoteIt

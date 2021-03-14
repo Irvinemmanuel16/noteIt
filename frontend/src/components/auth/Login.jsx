@@ -43,20 +43,16 @@ function Login(props) {
   return (
     <React.Fragment>
       <div className="mx-auto mt-24 flex justify-center">
-        <div className="border-4 border-gray w-1/5 min-w-min h-80 rounded-3xl flex flex-col justify-evenly items-center bg-gray bg-opacity-5">
+        <div className="border-4 border-gray w-1/5 xs:w-2/4 sm:w-7/12 lg:w-4/12 xl:w-3/12 h-80 rounded-3xl flex flex-col justify-evenly items-center bg-gray bg-opacity-5">
           <h4 className='text-3xl font-pay text-primary'>Sign in</h4>
-          <form onSubmit={ onSubmit } className='flex flex-col justify-between mt-2 h-45' >
-            <div>
-              <input type="text" name="email" className="outline-none text-primary bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20" onChange={ onChange } placeholder='Email' />
-            </div>
-            <div className='mb-4'>
-              <input type="password" name="password" className="outline-none text-primary bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20" onChange={ onChange } placeholder='Password' />
-            </div>
+          <form onSubmit={ onSubmit } className='flex flex-col items-center justify-between mt-2 h-45 w-11/12' >
+              <input type="text" name="email" className="w-full outline-none text-primary bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20" onChange={ onChange } placeholder='Email' />
+              <input type="password" name="password" className="w-full mb-4 outline-none text-primary bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20" onChange={ onChange } placeholder='Password' />
             <div className="mx-auto">
               <button className="text-secondary font-pay text-2xl hover:underline outline-none">Submit</button>
             </div>
           </form>
-          <span className='text-primary font-source' >Don't have an account ?&nbsp;<Link to='/register' className='text-secondary font-source hover:underline'>create one</Link></span>
+          <span className='text-primary font-source sm:text-sm sm:px-2.5'>Don't have an account ?&nbsp;<Link to='/register' className='text-secondary font-source hover:underline'>create one</Link></span>
         </div>
       </div>
       {/* {errors.map(msg => (
