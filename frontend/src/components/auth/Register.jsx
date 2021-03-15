@@ -53,7 +53,7 @@ function Register(props) {
               <input className='text-primary w-full outline-none bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20' placeholder='Password' type="password" name='password' onChange={ onChange } />
               <input className='mb-4 text-primary outline-none bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20' placeholder='Confirm password' type="password" name='password2' onChange={ onChange } />
               <div className='mx-auto'>
-              <button className='text-secondary font-pay text-2xl hover:underline outline-none'>Submit</button>
+                <button className='text-secondary font-pay text-2xl hover:underline focus:outline-none'>Submit</button>
               </div>
           </form>
           <span className='text-primary font-source  sm:text-sm sm:px-1.5'>Already have an account ?&nbsp;<Link to='/login' className='text-secondary font-source hover:underline'>Sign in</Link></span>
