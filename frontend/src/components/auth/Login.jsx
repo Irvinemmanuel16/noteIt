@@ -49,7 +49,7 @@ function Login(props) {
               <input type="text" name="email" className="w-full outline-none text-primary bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20" onChange={ onChange } placeholder='Email' />
               <input type="password" name="password" className="w-full mb-4 outline-none text-primary bg-white bg-opacity-5 border-2 rounded-xl pl-3 py-1 border-gray placeholder-white font-source bg-gray bg-opacity-20" onChange={ onChange } placeholder='Password' />
             <div className="mx-auto">
-              <button className="text-secondary font-pay text-2xl hover:underline outline-none">Submit</button>
+              <button className="text-secondary font-pay text-2xl hover:underline focus:outline-none">Submit</button>
             </div>
           </form>
           <span className='text-primary font-source sm:text-sm sm:px-2.5'>Don't have an account ?&nbsp;<Link to='/register' className='text-secondary font-source hover:underline'>create one</Link></span>
