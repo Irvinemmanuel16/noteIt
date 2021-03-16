@@ -1,15 +1,13 @@
 import React from 'react';
 
-function Alert({ msg, handler }) {
+function Alert({ msg, id, handler }) {
 
   return (
-    <div className='mt-4'>
-      <div className="alert alert-dark alert-dismissible fade show" role="alert" >
-        { msg }
-        <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={ handler }>
-          <span aria-hidden="true" className={ msg.slice(0, 1) }>&times;</span>
-        </button>
-      </div>
+    <div className='bg-gray rounded-xl md:w-2/4 sm:w-3/5 w-1/4 mx-auto mt-12 flex sm:text-xs justify-between p-4 font-pay text-primary text-sm'>
+      { msg }
+      <button className={ `alert-${id}` } onClick={ handler }>
+        close
+      </button>
     </div>
   );
 }

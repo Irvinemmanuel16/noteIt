@@ -23,7 +23,7 @@ function Home(props) {
         </>}
         <div className={`text-secondary border-b-4 border-r-4 border-gray flex justify-between items-center ${show ? 'text-editor' : 'border-l-4'}`}>
           <div className='h-12 flex items-center ml-2'>
-            <i className='logo-tab hidden lg:inline' onClick={() => setShow(prev => !prev)}/>
+            <i className={`logo-tab hidden lg:inline ${!show ? 'transform rotate-180' : '' }`} onClick={() => setShow(prev => !prev)}/>
           </div>
           <div className='w-1/5 sm:w-2/5 flex justify-evenly items-center mr-2'>
             <i className='logo-n' />
@@ -40,7 +40,7 @@ function Home(props) {
 }
 
 const mapStateToProps = state => ({
-  notes: state.notes.notes
+  notes: state.notes
 });
 
 export default connect(mapStateToProps, { deleteNote })(Home);

@@ -25,14 +25,14 @@ function Register(props) {
     props.registerUser({ ...data }, props.history);
   };
 
-  // const onClick = (e) => {
-  //   setErrors(prevErrors => {
-  //     return prevErrors.filter(error => error.slice(0, 1) !== e.target.className);
-  //   });
-  // };
+  const onClick = (e) => {
+    setErrors(prevErrors => {
+      return prevErrors.filter(error => `alert-${error.id}` !== e.target.className);
+    });
+  };
 
   useEffect(() => {
-    setErrors(() => Object.values(props.errors));
+    setErrors(() => props.errors);
   }, [props.errors]);
 
   useEffect(() => {
@@ -40,7 +40,6 @@ function Register(props) {
       props.history.push('/notes');
     }
   }, [props.auth]);
-
 
   return (
     <React.Fragment>
@@ -59,9 +58,9 @@ function Register(props) {
           <span className='text-primary font-source  sm:text-sm sm:px-1.5'>Already have an account ?&nbsp;<Link to='/login' className='text-secondary font-source hover:underline'>Sign in</Link></span>
         </div>
       </div>
-      {/* {errors.map(msg => (
-        <Alert msg={ msg } key={ `${Math.random()}${msg.slice(0, 1)}` } handler={ onClick } />
-      )) } */}
+      {errors.length > 0 &&
+        <Alert msg={ errors[0].msg } key={ `error-${errors[0].id}` } id={ errors[0].id } handler={ onClick } />
+      }
     </React.Fragment>
   );
 }

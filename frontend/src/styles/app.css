@@ -87,6 +87,6 @@ body{
 @media (max-width: 639px) {
   .grid-default {
     grid-template-rows: 0.14fr 1fr;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 0.6fr 1fr;
   }
 }

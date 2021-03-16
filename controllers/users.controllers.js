@@ -9,7 +9,7 @@ usersCtrl.loginUser = async (req, res) => {
     validateLogin(req.body);
     const { email, password } = req.body;
     let user = await User.findOne({ email });
-    if (!user) throw { email: 'Email not found' };
+    if (!user) throw [{ msg: 'Email not found', id: 9 }];
     let matched = await user.comparePasswords(password);
     if (matched) {
       jwt.sign({ id: user.id, name: user.name }, secretOrKey, { expiresIn: 31556926 }, (error, token) => {
@@ -19,7 +19,7 @@ usersCtrl.loginUser = async (req, res) => {
       throw { password: 'Password isn\'t correct' };
     }
   } catch (errors) {
-    return res.status(400).json(errors);
+    return res.status(400).send(errors);
   }
 };
 
@@ -28,13 +28,13 @@ usersCtrl.registerUser = async (req, res) => {
     validateRegister(req.body);
     const { name, email, password } = req.body;
     let userEmail = await User.findOne({ email });
-    if (userEmail) throw { email: 'Email already exists' };
+    if (userEmail) throw [{ msg: 'Email already exists', id: 8 }];
     let newUser = new User({ name, email });
     newUser.password = await newUser.encryptPassword(password);
     await newUser.save();
     return res.send('User registered succesfully');
   } catch (errors) {
-    return res.status(400).json(errors);
+    return res.status(400).send(errors);
   }
 };
 

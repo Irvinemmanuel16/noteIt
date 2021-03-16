@@ -1,26 +1,13 @@
 /*eslint-disable*/
-import { CREATE_NOTE, DELETE_NOTE, GET_NOTES, UPDATE_NOTE } from '../actions/types';
+import { GET_NOTES } from '../actions/types';
 
-const initialState = {
-  notes: []
-}
+const initialState = []
 
 export default function(state = initialState, action) {
   switch(action.type) {
     case GET_NOTES:
-      return {
-        ...state,
-        notes: action.payload
-      }
-    case DELETE_NOTE: 
-      return {...state}
-
-    case UPDATE_NOTE: 
-      return {...state}
-
-    case CREATE_NOTE: 
-      return {...state}
+    return action.payload
     default: 
-      return {...state}
+      return state;
   }
 }

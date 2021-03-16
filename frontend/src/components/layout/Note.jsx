@@ -109,7 +109,7 @@ function Note(props) {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  notes: state.notes.notes
+  notes: state.notes
 });
 
 export default connect(mapStateToProps, {createNote, updateNote})(Note);
