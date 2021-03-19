@@ -107,7 +107,7 @@ function Note(props) {
             name="content"
             renderLeaf={renderLeaf}
             placeholder='Content'
-            className="outline-none pl-4 pr-4 pt-2 max-w-full bg-transparent placeholder-current h-4/6 w-full resize-none overflow-hidden text-primary font-source text-base"
+            className="outline-none pl-4 pr-4 pt-2 max-w-full bg-transparent placeholder-current h-4/6 w-full break-all text-primary font-source text-base"
             required
           />
         </div>
