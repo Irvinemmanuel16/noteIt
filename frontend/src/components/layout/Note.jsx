@@ -1,18 +1,20 @@
 /* eslint-disable */
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { useCallback } from 'react';
+import { Editable } from 'slate-react';
 import { createNote, updateNote } from '../../redux/actions/notesActions'
 
 function Note(props) {
 
-  const { match, history } = props;
+  const { match, history,  } = props;
 
   const [form, setForm] = useState({
     title: '',
-    content: '',
     date: new Date(),
-    author: ''
+    author: '',
+    content: {}
   });
 
   const [editing, setEditing] = useState(false);
@@ -21,6 +23,7 @@ function Note(props) {
   async function main() {
     if (match.params.id) {
       const res = await axios.get(`/api/notes/${match.params.id}`);
+      console.log(res?.data?.content)
       setForm({
         title: res.data.title,
         content: res.data.content,
@@ -57,22 +60,30 @@ function Note(props) {
 
   function onInputChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
+
   }
+
+  const renderLeaf = useCallback(props => {
+    if(props.leaf.bold) return <BoldLeaf {...props} />
+    if(props.leaf.italic) return <ItalicLeaf {...props} />
+    if(props.leaf.underline) return <UnderlineLeaf {...props} />
+    else return <Leaf {...props} />
+  }, [])
 
   useEffect(() => {
     main();
-  }, [history.location.pathname]);
-
-  useEffect(() => {
     if(history.location.pathname === '/notes'){
       setForm({
         title: '',
-        content: '',
         author: '',
         date: new Date()
       })
     }
   }, [history.location.pathname]);
+
+  useEffect(() => {
+    setForm({...form, content: props.value?.[0]})
+  }, [props.value])
 
 
 
@@ -86,18 +97,17 @@ function Note(props) {
             placeholder='Title'
             onChange={ onInputChange }
             name='title'
+            maxLength='12'
             value={ form.title }
             required
           />
         </div>
         <div className='mt-4 w-full h-4/6'>
-          <textarea
+          <Editable
             name="content"
-            className="outline-none pl-4 pr-4 pt-2 bg-transparent placeholder-current h-4/6 w-full resize-none overflow-hidden text-primary font-source text-base"
-            type='text'
+            renderLeaf={renderLeaf}
             placeholder='Content'
-            onChange={ onInputChange }
-            value={ form.content }
+            className="outline-none pl-4 pr-4 pt-2 max-w-full bg-transparent placeholder-current h-4/6 w-full resize-none overflow-hidden text-primary font-source text-base"
             required
           />
         </div>
@@ -111,5 +121,45 @@ const mapStateToProps = state => ({
   auth: state.auth,
   notes: state.notes
 });
+
+const Leaf = props => {
+  return (
+    <span {...props.attributes}>
+      {props.children}
+    </span>
+  )
+}
+
+const BoldLeaf = props => {
+  return (
+    <span
+      {...props.attributes}
+      style={{ fontWeight: props.leaf.bold ? 'bold' : 'normal' }}
+    >
+      {props.children}
+    </span>
+  )
+}
+
+const ItalicLeaf = props => {
+  return (
+    <span
+      {...props.attributes}
+      style={{ fontStyle: props.leaf.italic ? 'italic' : 'normal' }}
+    >
+      {props.children}
+    </span>
+  )
+}
+const UnderlineLeaf = props => {
+  return (
+    <span
+      {...props.attributes}
+      style={{ textDecoration: props.leaf.underline ? 'underline' : 'none' }}
+    >
+      {props.children}
+    </span>
+  )
+}
 
 export default connect(mapStateToProps, {createNote, updateNote})(Note);
