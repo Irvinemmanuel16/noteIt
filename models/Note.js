@@ -22,6 +22,4 @@ const NoteSchema = new Schema({
   timestamps: true
 });
 
-// { type: 'paragraph', children: [ { text: 'wesvd' } ] }
-
 module.exports = model('notes', NoteSchema);

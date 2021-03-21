@@ -21,8 +21,6 @@
     "mongoose": "^5.11.7",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "slate": "^0.59.0",
-    "slate-react": "^0.59.0",
     "validator": "^13.5.2"
   },
   "devDependencies": {

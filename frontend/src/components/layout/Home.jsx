@@ -11,8 +11,11 @@ import NotesList from './NotesList'
 
 function Home(props) {
 
-  const [show, setShow] = useState(true)
   const editor = useMemo(() => withReact(createEditor()), [])
+  const [isBold, setIsBold] = useState(false)
+  const [isUnderline, setIsUnderline] = useState(false)
+  const [isItalic, setIsItalic] = useState(false)
+  const [show, setShow] = useState(true)
   const [value, setValue] = useState([
     {
       type: 'paragraph',
@@ -23,8 +26,7 @@ function Home(props) {
   const main = async () => {
     if (props.match.params.id) {
       const res = await axios.get(`/api/notes/${props.match.params.id}`);
-      // console.log(res)
-      setValue(res.data.content)
+      setValue(res?.data?.content)
     }
   }
 
@@ -62,24 +64,27 @@ function Home(props) {
             </div>
             <div className='w-1/5 sm:w-2/5 flex justify-evenly items-center mr-2'>
               <i 
-                className='cursor-pointer logo-n' 
+                className={`cursor-pointer logo-n p-3 rounded border border-white ${isBold ? 'border-opacity-50' : 'border-opacity-0'}`} 
                 onMouseDown={event => {
-                  event.preventDefault(); 
+                  event.preventDefault();
                   CustomEditor.toggleBoldMark(editor)
+                  setIsBold(() => CustomEditor.isBoldMarkActive(editor) ? true : false)
                 }}
               />
               <i 
-                className='cursor-pointer logo-k' 
+                className={`cursor-pointer logo-k p-3 rounded border border-white ${isItalic ? 'border-opacity-50' : 'border-opacity-0'}`}
                 onMouseDown={event => {
                   event.preventDefault()
                   CustomEditor.toggleItalicMark(editor)
+                  setIsItalic(() => CustomEditor.isItalicMarkActive(editor) ? true : false)
                 }}
               />
               <i 
-                className='cursor-pointer logo-s' 
+                className={`cursor-pointer logo-s p-3 rounded border border-white ${isUnderline ? 'border-opacity-50' : 'border-opacity-0'}`} 
                 onMouseDown={event => {
                   event.preventDefault()
                   CustomEditor.toggleUnderlineMark(editor)
+                  setIsUnderline(() => CustomEditor.isUnderlineMarkActive(editor) ? true : false)
                 }}
               />
             </div>

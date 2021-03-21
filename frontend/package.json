@@ -15,6 +15,8 @@
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "slate": "^0.60.11",
+    "slate-react": "^0.60.11",
     "tailwindcss": "^2.0.3"
   },
   "proxy": "http://localhost:5000",

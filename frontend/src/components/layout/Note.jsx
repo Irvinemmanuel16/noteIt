@@ -23,7 +23,6 @@ function Note(props) {
   async function main() {
     if (match.params.id) {
       const res = await axios.get(`/api/notes/${match.params.id}`);
-      console.log(res?.data?.content)
       setForm({
         title: res.data.title,
         content: res.data.content,
