@@ -58,6 +58,13 @@ body{
   display: inline-block;
 }
 
+.logo-close {
+  background: url('../assets/Icons/x-icon-22x22px.svg');
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+}
+
 .font-pay {
   font-family: 'Paytone One', sans-serif;
 }

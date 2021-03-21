@@ -26,7 +26,7 @@ function Login(props) {
 
   const onClick = (e) => {
     setErrors(prevErrors => {
-      return prevErrors.filter(error => `alert-${error.id}` !== e.target.className);
+      return prevErrors.filter(error => !e.target.classList.contains(`alert-${error.id}`));
     });
   };
 

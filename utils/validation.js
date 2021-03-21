@@ -7,9 +7,9 @@ function validateLogin({ email, password }) {
   email = !isEmpty(email) ? email : '';
   password = !isEmpty(password) ? password : '';
 
-  if (Validator.isEmpty(email)) errors.push({ msg: 'Email field is required', id: 2});
-  if (!Validator.isEmail(email)) errors.push({ msg: 'Email is invalid', id: 3});
-  if (Validator.isEmpty(password)) errors.push({ msg: 'Password field is required', id: 4});
+  if (Validator.isEmpty(email)) errors.push({ msg: 'Email field is required', id: 11});
+  if (!Validator.isEmail(email)) errors.push({ msg: 'Email is invalid', id: 12});
+  if (Validator.isEmpty(password)) errors.push({ msg: 'Password field is required', id: 13});
 
   if (!isEmpty(errors)) throw errors;
 }

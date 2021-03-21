@@ -16,7 +16,7 @@ usersCtrl.loginUser = async (req, res) => {
         return res.json({ success: true, token: 'Bearer' + token });
       });
     } else {
-      throw { password: 'Password isn\'t correct' };
+      throw [{ msg: 'Password isn\'t correct', id: 10 }];
     }
   } catch (errors) {
     return res.status(400).send(errors);
