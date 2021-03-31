@@ -4,7 +4,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { useCallback } from 'react';
 import { Editable } from 'slate-react';
-import { createNote, updateNote } from '../../redux/actions/notesActions'
+import { createNote, updateNote } from '../../redux/actions/notesActions';
+
 
 function Note(props) {
 
@@ -131,33 +132,25 @@ const Leaf = props => {
 
 const BoldLeaf = props => {
   return (
-    <span
-      {...props.attributes}
-      style={{ fontWeight: props.leaf.bold ? 'bold' : 'normal' }}
-    >
+    <strong {...props.attributes}>
       {props.children}
-    </span>
+    </strong>
   )
 }
 
 const ItalicLeaf = props => {
   return (
-    <span
-      {...props.attributes}
-      style={{ fontStyle: props.leaf.italic ? 'italic' : 'normal' }}
-    >
+    <i {...props.attributes}>
       {props.children}
-    </span>
+    </i>
   )
 }
 const UnderlineLeaf = props => {
   return (
-    <span
-      {...props.attributes}
-      style={{ textDecoration: props.leaf.underline ? 'underline' : 'none' }}
-    >
+    <u {...props.attributes}>
       {props.children}
-    </span>
+    </u>
+    
   )
 }
 

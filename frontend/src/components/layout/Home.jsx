@@ -8,10 +8,11 @@ import { deleteNote } from '../../redux/actions/notesActions';
 import CustomEditor from '../../utils/customEditor';
 import Note from './Note'
 import NotesList from './NotesList'
+import { useAndroidPlugin } from "slate-android-plugin";
 
 function Home(props) {
 
-  const editor = useMemo(() => withReact(createEditor()), [])
+  const editor = useAndroidPlugin(useMemo(() => withReact(createEditor()), []));
   const [isBold, setIsBold] = useState(false)
   const [isUnderline, setIsUnderline] = useState(false)
   const [isItalic, setIsItalic] = useState(false)

@@ -16,6 +16,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "slate": "^0.60.11",
+    "slate-android-plugin": "^0.0.4",
     "slate-react": "^0.60.11",
     "tailwindcss": "^2.0.3"
   },
@@ -44,6 +45,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }
