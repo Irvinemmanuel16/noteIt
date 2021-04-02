@@ -39,20 +39,19 @@ exports.handler = async function(event, context) {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: true,
-      autoIndex: false
+      // autoIndex: false
     });
     await conn;
     conn.model('test', noteSchema)
   }
   
-  let Note = conn.model('test');
-  let { title, author, content } = JSON.parse(event?.body);
-  let newNote = new Note({ title, author, content })
-  let { _id: id } = await newNote.save()
+  let Note = conn.model('test')
+  let { id } = event?.queryStringParameters;
+  let note = await Note.findById(id);
   mongoose.connection.close()
 
   return {
     statusCode: 200,
-    body: JSON.stringify(id)
+    body: JSON.stringify(note)
   }
-};
+}

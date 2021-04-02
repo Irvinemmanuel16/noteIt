@@ -7,7 +7,7 @@
     "dev": "concurrently \"nodemon index.js\" \"npm start --prefix frontend\"",
     "start": "node index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i --prefix frontend && npm run build --prefix frontend",
-    "test": "netlify-lambda serve ./functions/notes"
+    "test": "netlify-lambda serve ./functions/users"
   },
   "keywords": [],
   "author": "Irvin Meneses <developer@irvinemmanuel.xyz>",

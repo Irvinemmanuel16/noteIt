@@ -20,7 +20,6 @@
     "slate-react": "^0.60.11",
     "tailwindcss": "^2.0.3"
   },
-  "proxy": "http://localhost:5000",
   "scripts": {
     "start": "npm run build:css && react-scripts start",
     "build": "npm run build:css && react-scripts build",

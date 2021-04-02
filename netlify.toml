@@ -1,2 +1,12 @@
 [build]
-  functions = "lambda/"
+  base = "/"
+  publish = "frontend/build/"
+  command = "npm run build --prefix frontend"
+
+[functions]
+  directory = "lambda/"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

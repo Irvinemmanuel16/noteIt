@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const passport = require('passport');
+
 
 let conn = null;
 const db_name = encodeURIComponent(process.env.DB_NAME);
@@ -44,15 +46,12 @@ exports.handler = async function(event, context) {
     await conn;
     conn.model('test', noteSchema)
   }
-  
-  let Note = conn.model('test');
-  let { title, author, content } = JSON.parse(event?.body);
-  let newNote = new Note({ title, author, content })
-  let { _id: id } = await newNote.save()
-  mongoose.connection.close()
 
+  let Note = conn.model('test');
+  let notes = await Note.find()
+  mongoose.connection.close()
   return {
     statusCode: 200,
-    body: JSON.stringify(id)
+    body: JSON.stringify(notes)
   }
-};
+}
