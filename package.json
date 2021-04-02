@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "concurrently \"nodemon index.js\" \"npm start --prefix frontend\"",
     "start": "node index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i --prefix frontend && npm run build --prefix frontend",
+    "test": "netlify-lambda serve ./functions/notes"
   },
   "keywords": [],
   "author": "Irvin Meneses <developer@irvinemmanuel.xyz>",
@@ -19,6 +20,7 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.7",
+    "netlify-lambda": "^2.0.3",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "validator": "^13.5.2"
