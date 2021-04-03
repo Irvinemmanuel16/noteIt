@@ -6,7 +6,7 @@ import { GET_ERRORS, USER_LOADING, SET_CURRENT_USER } from './types';
 
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post('/.netlify/lambda/registerUser', userData)
+    .post('/.netlify/functions/registerUser', userData)
     .then(() => {
       dispatch(clearErrors());
       history.push('/login');
@@ -19,7 +19,7 @@ export const registerUser = (userData, history) => dispatch => {
 
 export const loginUser = userData => dispatch => {
   axios
-    .post('/.netlify/lambda/loginUser', userData)
+    .post('/.netlify/functions/loginUser', userData)
     .then(res => {
       const { token } = res.data;
       localStorage.setItem('jwtToken', token);

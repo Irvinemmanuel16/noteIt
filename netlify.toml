@@ -2,6 +2,7 @@
   base = "/"
   publish = "build/"
   command = "npm run build"
+  functions = "lambda/"
 
 [functions]
   directory = "lambda/"
