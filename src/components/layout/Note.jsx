@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { useCallback } from 'react';
-import { Editable } from 'slate-react';
+import { Editable } from 'slate-react'
 import { createNote, updateNote } from '../../redux/actions/notesActions';
 
 
@@ -23,7 +23,7 @@ function Note(props) {
 
   async function main() {
     if (match.params.id) {
-      const res = await axios.get(`/api/notes/${match.params.id}`);
+      const res = await axios.get(`/.netlify/lambda/notes?id=${match.params.id}`);
       setForm({
         title: res.data.title,
         content: res.data.content,
