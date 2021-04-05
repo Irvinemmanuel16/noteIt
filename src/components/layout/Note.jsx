@@ -23,7 +23,7 @@ function Note(props) {
 
   async function main() {
     if (match.params.id) {
-      const res = await axios.get(`/.netlify/functions/notes?id=${match.params.id}`);
+      const res = await axios.get(`/.netlify/functions/getNote?id=${match.params.id}`);
       setForm({
         title: res.data.title,
         content: res.data.content,
