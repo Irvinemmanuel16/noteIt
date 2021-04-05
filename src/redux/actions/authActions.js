@@ -20,7 +20,7 @@ export const registerUser = (userData, history) => dispatch => {
 export const loginUser = userData => async dispatch => {
   try {
     let response = await axios.post('/.netlify/functions/loginUser', userData)
-    let data = await response.json()
+    let data = await response.data
     console.log(data, response)  
   } catch (error) {
     console.log(error?.response)
