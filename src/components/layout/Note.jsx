@@ -24,13 +24,13 @@ function Note(props) {
   async function main() {
     if (match.params.id) {
       const res = await axios.get(`/.netlify/functions/getNote?id=${match.params.id}`);
-      console.log(res)
       setForm({
         title: res.data.title,
         content: res.data.content,
         date: new Date(res.data.date),
         author: res.data.author
       });
+      console.log(form)
       setId(res.data._id);
       setEditing(true);
     } else{
