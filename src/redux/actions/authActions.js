@@ -29,12 +29,13 @@ export const loginUser = userData => dispatch => {
       dispatch(clearErrors());
       dispatch(setCurrentUser(decoded));
     })
-    .catch(res => {
-      console.log(res)
-      dispatch({
-      type: GET_ERRORS,
-      payload: res?.response?.data
-    })});
+    .catch(() => {
+      console.log(res?.response)
+    //   dispatch({
+    //   type: GET_ERRORS,
+    //   payload: res?.response?.data
+    // })
+  });
 };
 
 export const setCurrentUser = decoded => ({
