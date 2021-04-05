@@ -19,9 +19,8 @@ function Home(props) {
   const [show, setShow] = useState(true)
   const [value, setValue] = useState([
     {
-      type: 'paragraph',
-      children: [{ text: '' }],
-    },
+        children: [{ text: '' }],
+    }
   ])
 
   const main = async () => {
@@ -36,10 +35,9 @@ function Home(props) {
     if(props.history.location.pathname === '/notes'){
       setValue(() => [
         {
-          type: 'paragraph',
-          children: [{ text: '' }],
-        },
-      ])
+            children: [{ text: '' }],
+        }
+    ])
     }
   }, [props.history.location.pathname])
 

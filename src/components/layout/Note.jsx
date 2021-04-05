@@ -44,8 +44,6 @@ function Note(props) {
       const updatedNote = {
         title: form.title,
         content: form.content,
-        author: form.userSelected,
-        date: form.date
       };
       props.updateNote(updatedNote, id);
     } else {
@@ -83,6 +81,7 @@ function Note(props) {
   }, [history.location.pathname]);
 
   useEffect(() => {
+    console.log(props.value)
     setForm({...form, content: props.value?.[0]})
   }, [props.value])
 
