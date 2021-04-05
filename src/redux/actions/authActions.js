@@ -20,27 +20,27 @@ export const registerUser = (userData, history) => dispatch => {
 export const loginUser = userData => async dispatch => {
   try {
     let response = await axios.post('/.netlify/functions/loginUser', userData)
-    let data = await response.data
-    console.log(data, response)  
-  } catch (error) {
-    console.log(error?.response)
+    let { token } = await response.data
+    localStorage.setItem('jwtToken', token);
+    setAuthToken(token);
+    const decoded = jwtDecode(token);
+    dispatch(clearErrors());
+    dispatch(setCurrentUser(decoded));
+  } catch ({ response }) {
+    console.log(response)
+    dispatch({
+      type: GET_ERRORS,
+      payload: response?.data
+    })
   }
   
   //   .then(res => {
   //     console.log(res)
   //     const { token } = res.data;
-  //     localStorage.setItem('jwtToken', token);
-  //     setAuthToken(token);
-  //     const decoded = jwtDecode(token);
-  //     dispatch(clearErrors());
-  //     dispatch(setCurrentUser(decoded));
-  //   })
+  
   //   .catch(() => {
   //     console.log(res?.response)
-  //   //   dispatch({
-  //   //   type: GET_ERRORS,
-  //   //   payload: res?.response?.data
-  //   // })
+  //   //   
   // });
 };
 
