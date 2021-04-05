@@ -48,7 +48,7 @@ async function connectToDatabase() {
 
 async function loginUser(data) {
   let { db, client } = await connectToDatabase()
-  let secretOrKey = process.env.SECRET || 'Dakota123456';
+  let secretOrKey = process.env.SECRET;
   try {
     const { email, password } = validateLogin(JSON.parse(data))
     let user = await db.collection('users').findOne({ email });
