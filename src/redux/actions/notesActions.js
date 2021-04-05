@@ -3,6 +3,7 @@ import { CREATE_NOTE, DELETE_NOTE, UPDATE_NOTE, GET_NOTES } from './types'
 
 export const getNotes = user => async dispatch => {
   const res = await axios.get('/.netlify/lambda/getNotes');
+  console.log(res)
   dispatch({
     type: GET_NOTES,
     payload: res.data.filter(note => note.author === user)
