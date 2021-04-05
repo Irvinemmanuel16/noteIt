@@ -23,7 +23,7 @@ export const loginUser = userData => async dispatch => {
     let data = await response.json()
     console.log(data, response)  
   } catch (error) {
-    console.log(error)
+    console.log(error?.response)
   }
   
   //   .then(res => {
