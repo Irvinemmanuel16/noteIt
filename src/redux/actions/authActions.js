@@ -19,7 +19,7 @@ export const registerUser = (userData, history) => dispatch => {
 
 export const loginUser = userData => dispatch => {
   axios
-    .post('https://gallant-hypatia-7787f3.netlify.app/.netlify/functions/loginUser', userData)
+    .post('/.netlify/functions/loginUser', userData)
     .then(res => {
       console.log(res)
       const { token } = res.data;
