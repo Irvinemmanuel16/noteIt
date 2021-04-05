@@ -18,9 +18,14 @@ export const registerUser = (userData, history) => dispatch => {
 };
 
 export const loginUser = userData => async dispatch => {
-  let response = await axios.post('/.netlify/functions/loginUser', userData)
-  let data = await response.json()
-  console.log(data)
+  try {
+    let response = await axios.post('/.netlify/functions/loginUser', userData)
+    let data = await response.json()
+    console.log(data, response)  
+  } catch (error) {
+    console.log(error)
+  }
+  
   //   .then(res => {
   //     console.log(res)
   //     const { token } = res.data;
