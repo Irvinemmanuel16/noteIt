@@ -38,6 +38,9 @@ function Home(props) {
           children: [{ text: '' }],
         }
       ])
+      setIsBold(false)
+      setIsItalic(false)
+      setIsUnderline(false)
     }
   }, [props.history.location.pathname])
 
