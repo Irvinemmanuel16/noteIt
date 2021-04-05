@@ -26,7 +26,7 @@ function Home(props) {
 
   const main = async () => {
     if (props.match.params.id) {
-      const res = await axios.get(`/api/notes/${props.match.params.id}`);
+      const res = await axios.get(`/.netlify/functions/getNote?id=${props.match.params.id}`);
       setValue(res?.data?.content)
     }
   }
