@@ -17,24 +17,26 @@ export const registerUser = (userData, history) => dispatch => {
     }));
 };
 
-export const loginUser = userData => dispatch => {
-  axios
-    .post('/.netlify/functions/loginUser', userData)
-    .then(res => {
-      console.log(res)
-      const { token } = res.data;
-      localStorage.setItem('jwtToken', token);
-      setAuthToken(token);
-      const decoded = jwtDecode(token);
-      dispatch(clearErrors());
-      dispatch(setCurrentUser(decoded));
-    })
-    .catch(res => {
-      console.log(res)
-      dispatch({
-      type: GET_ERRORS,
-      payload: res?.response?.data
-    })});
+export const loginUser = userData => async dispatch => {
+  let response = await axios.post('/.netlify/functions/loginUser', userData)
+  let data = await response.json()
+  console.log(data)
+  //   .then(res => {
+  //     console.log(res)
+  //     const { token } = res.data;
+  //     localStorage.setItem('jwtToken', token);
+  //     setAuthToken(token);
+  //     const decoded = jwtDecode(token);
+  //     dispatch(clearErrors());
+  //     dispatch(setCurrentUser(decoded));
+  //   })
+  //   .catch(() => {
+  //     console.log(res?.response)
+  //   //   dispatch({
+  //   //   type: GET_ERRORS,
+  //   //   payload: res?.response?.data
+  //   // })
+  // });
 };
 
 export const setCurrentUser = decoded => ({
