@@ -21,6 +21,7 @@ export const loginUser = userData => dispatch => {
   axios
     .post('/.netlify/functions/loginUser', userData)
     .then(res => {
+      console.log(res)
       const { token } = res.data;
       localStorage.setItem('jwtToken', token);
       setAuthToken(token);
@@ -28,10 +29,12 @@ export const loginUser = userData => dispatch => {
       dispatch(clearErrors());
       dispatch(setCurrentUser(decoded));
     })
-    .catch(res => dispatch({
+    .catch(res => {
+      console.log(res)
+      dispatch({
       type: GET_ERRORS,
       payload: res?.response?.data
-    }));
+    })});
 };
 
 export const setCurrentUser = decoded => ({
