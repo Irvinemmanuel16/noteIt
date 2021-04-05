@@ -1,6 +1,6 @@
 import axios from 'axios';
-// import setAuthToken from '../../utils/setAuthToken';
-// import jwtDecode from 'jwt-decode';
+import setAuthToken from '../../utils/setAuthToken';
+import jwtDecode from 'jwt-decode';
 
 import { GET_ERRORS, USER_LOADING, SET_CURRENT_USER } from './types';
 
@@ -27,7 +27,6 @@ export const loginUser = userData => async dispatch => {
     dispatch(clearErrors());
     dispatch(setCurrentUser(decoded));
   } catch ({ response }) {
-    console.log(response)
     dispatch({
       type: GET_ERRORS,
       payload: response?.data
