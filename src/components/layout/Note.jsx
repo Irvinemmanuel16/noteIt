@@ -104,13 +104,13 @@ function Note(props) {
           />
         </div>
         <div className='mt-4 w-full h-4/6'>
-          <Editable
+          {/* <Editable
             name="content"
             renderLeaf={renderLeaf}
             placeholder='Content'
             className="outline-none pl-4 pr-4 pt-2 max-w-full bg-transparent placeholder-current h-4/6 w-full break-all text-primary font-source text-base"
             required
-          />
+          /> */}
         </div>
         <input type="submit" value="Save" className='self-end mr-12 bg-transparent font-pay text-primary text-2xl cursor-pointer'/>
       </form>

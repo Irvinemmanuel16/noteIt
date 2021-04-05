@@ -56,7 +56,7 @@ function Home(props) {
             <NotesList history={props.history} className='overflow-y-scroll'/>
           </div>
         </>}
-        <Slate editor={editor} value={value} onChange={value => {
+        {/* <Slate editor={editor} value={value} onChange={value => {
           setValue(value)
         }}>
           <div className={`text-secondary border-b-4 border-r-4 border-gray flex justify-between items-center ${show ? 'text-editor' : 'border-l-4'}`}>
@@ -93,7 +93,7 @@ function Home(props) {
           <div className={`text-secondary border-r-4 border-b-4 border-gray bg-blue note-editor ${!show ? 'border-l-4' : ''}`}>
             <Note match={props.match} history={props.history} editor={editor} value={value} />
           </div>
-        </Slate>
+        </Slate> */}
       </div>
     </>
   )
