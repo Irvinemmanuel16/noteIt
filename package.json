@@ -23,7 +23,7 @@
     "redux-thunk": "^2.3.0",
     "slate": "^0.60.11",
     "slate-android-plugin": "^0.0.4",
-    "slate-react": "^0.62.0",
+    "slate-react": "^0.60.11",
     "validator": "^13.5.2",
     "web-vitals": "^1.1.1"
   },
