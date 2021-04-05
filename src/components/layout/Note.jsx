@@ -82,7 +82,7 @@ function Note(props) {
 
   useEffect(() => {
     console.log(props.value)
-    setForm({...form, content: props.value?.[0]})
+    setForm({...form, content: props?.value})
   }, [props.value])
 
 

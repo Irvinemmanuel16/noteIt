@@ -35,9 +35,9 @@ function Home(props) {
     if(props.history.location.pathname === '/notes'){
       setValue(() => [
         {
-            children: [{ text: '' }],
+          children: [{ text: '' }],
         }
-    ])
+      ])
     }
   }, [props.history.location.pathname])
 
