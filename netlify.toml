@@ -2,10 +2,10 @@
   base = "/"
   publish = "build/"
   command = "npm run build"
-  functions = "lambda/"
+  functions = "functions/"
 
 [functions]
-  directory = "lambda/"
+  directory = "functions/"
 
 [[redirects]]
   from = "/*"
